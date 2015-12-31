@@ -1,0 +1,27 @@
+﻿<form ng-submit="save()" class="popupForm ">
+    <input type="text" placeholder="Title" ng-model="newImage.title" />
+    <input type="text" placeholder="Description" ng-model="newImage.description" />
+    <input type="file" ng-model="file" onchange="angular.element(this).scope().uploadImage(this.files[0])" />
+    <input type="text" placeholder="Link" ng-model="newImage.link" />
+    <div class="bottomPopup"><input class="btnPopup" type="submit" value="Save" />
+    <input class="btnPopup" type="button" value="Cancel" ng-click="cancel()" /></div>
+</form>
+<img src="{{newImage.image_url}}" alt="bla" />
+
+
+
+
+<!--
+    <div id="popupN" tabindex="-1" role="dialog" class="modal fade ng-isolate-scope dialogs-default in" ng-class="{in: animate}" ng-style="{'z-index': 1050 + index*10, display: 'block'}" ng-click="close($event)" modal-window="" window-class="dialogs-default" size="lg" index="0" animate="animate" style="z-index: 1050; display: block;">
+    <div class="modal-dialog modal-lg" ng-class="{'modal-sm': size == 'sm', 'modal-lg': size == 'lg'}"><div class="outerForm" ng-transclude=""><form ng-submit="save()" class="popupForm ng-scope ng-pristine ng-valid">
+    <input type="text" placeholder="Title" ng-model="newImage.title" class="ng-pristine ng-valid">
+    <input type="text" placeholder="Description" ng-model="newImage.description" class="ng-pristine ng-valid">
+    <input type="file" ng-model="file" onchange="angular.element(this).scope().uploadImage(this.files[0])" class="ng-pristine ng-valid">
+    <input type="text" placeholder="Link" ng-model="newImage.link" class="ng-pristine ng-valid">
+<div class="bottomPopup">    <input class="btnPopup" type="submit" value="Save">
+  <input type="button" value="Cancel" ng-click="cancel()" class="btnPopup"></div>
+</form>
+<img src="" alt="bla" class="ng-scope">
+
+</div></div>
+</div>-->
