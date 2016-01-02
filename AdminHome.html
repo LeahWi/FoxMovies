@@ -7,12 +7,13 @@
     <link href="favicon.ico" rel="shortcut icon"/>
     <link href="mainStyle.css" rel="stylesheet" />
     <link href="angular-dialog-service-master/example/css/dialogs.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
 </head>
 <body ng-app='slider'>
- <div class='container' ng-controller='MainCtrl'>
-      <button class='add-button' ng-click="launch()">+</button>
-     {{images}}
-</div>
+    <div class='container' ng-controller='MainCtrl'>
+         <slider images="images"></slider>
+         <button ng-disabled="disableButton" class='add-button' ng-click="launch()">+</button>
+    </div>
     <script type="text/javascript" src="angular1.min.js"></script>
     <script type="text/javascript" src="angular-sanitize.min.js"></script>
     <script type="text/javascript" src="angular-translate.min.js"></script>
@@ -21,5 +22,6 @@
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="controller.js"></script>
     <script type="text/javascript" src="dialogCtrl.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
 </body>
 </html>

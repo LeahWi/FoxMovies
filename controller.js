@@ -1,39 +1,27 @@
 ﻿app.controller('MainCtrl', function ($scope, $rootScope, $timeout, dialogs) {
     //-- Variables --//
 
-    var _progress = 33;
-
-    $scope.name = '';
-    $scope.confirmed = 'No confirmation yet!';
+    // Put the images objects from local storage on the $scope.images var, if there are no images - put an empty array.
     $scope.images = JSON.parse(localStorage.getItem('savedData')) || [];
-
-    $scope.custom = {
-        val: 'Initial Value'
-    };
+    $scope.disableButton = false;
 
     //-- Listeners & Watchers --//
 
+    //Open a new popup
     $scope.launch = function () {
         var dlg = dialogs.create('popup.html', 'customDialogCtrl', {}, 'lg');
+        $scope.disableButton = true;
+        //After press save
         dlg.result.then(function (newImage) {
             $scope.images.push(newImage);
-            //to enable the popup button
-        }, function () {
-            //to enable the popup button
-            if (angular.equals($scope.images, {}))
-                $scope.title = 'You did not enter an image!';
+            $scope.disableButton = false;
+        },
+        //After press cancel
+        function () {
+            $scope.disableButton = false;
+            if (angular.equals($scope.images, {}));
+                //TODO: Add a relevant alert
+                //$scope.title = 'You did not enter an image!';
         });
     }; // end launch
-
-    var _fakeWaitProgress = function () {
-        $timeout(function () {
-            if (_progress < 100) {
-                _progress += 33;
-                $rootScope.$broadcast('dialogs.wait.progress', { 'progress': _progress });
-                _fakeWaitProgress();
-            } else {
-                $rootScope.$broadcast('dialogs.wait.complete');
-            }
-        }, 1000);
-    };
 });

@@ -1,10 +1,10 @@
 ﻿app.controller('customDialogCtrl', function ($scope, $modalInstance, data) {
     //-- Variables --//
-    $scope.image_url = '';
     $scope.newImage = { title: '', description: '', image_url: '', link: '' };
 
     //-- Methods --//
 
+    // Using html5 api, saving the new image to the localStorage
     $scope.uploadImage = function (file) {
         var reader = new FileReader();
         // inject an image with the src url
@@ -23,14 +23,13 @@
 
     $scope.save = function () {
         savedData = JSON.parse(localStorage.getItem('savedData')) || [];
-        //var receiveddata = JSON.stringify($scope.newImage);
         savedData.push($scope.newImage);
         localStorage.setItem("savedData", JSON.stringify(savedData));
         $modalInstance.close($scope.newImage);
     }; // end save
 
-    $scope.hitEnter = function (evt) {
-        if (angular.equals(evt.keyCode, 13) && !(angular.equals($scope.user.name, null) || angular.equals($scope.user.name, '')))
-            $scope.save();
-    };
+    //$scope.hitEnter = function (evt) {
+    //    if (angular.equals(evt.keyCode, 13) && !(angular.equals($scope.user.name, null) || angular.equals($scope.user.name, '')))
+    //        $scope.save();
+    //};
 });
