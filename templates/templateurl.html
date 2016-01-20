@@ -1,29 +1,46 @@
 ﻿    <div class="slider">
-        <div class="slide" ng-repeat="image in images" ng-show="image.visible">
-            <img height="50" ng-src="{{image.image_url}}" />
-            <div class="outerSlideTitle">
-                <h3 class="slideH3" ng-bind="image.title"></h3>
-                <span class="slideSpan" ng-bind="image.description"></span>
-                 <a class="slideA" href="{{image.link}}">ABOUT THE FILM</a>
+        <div id="outerslide">
+            <div class="slide" ng-repeat="image in images" ng-show="image.visible">
+                <img height="50" ng-src="{{image.image_url}}" />
+                <div class="container">
+                    <div class="outerSlideTitle">
+                        <h3 class="slideH3" ng-bind="image.title"></h3>
+                        <div class="sliderSeperator"></div>
+                        <span class="slideSpan" ng-bind="image.description"></span>
+                         <a class="slideA" href="{{image.link}}">
+                             <span class="leftSpanWithText">ABOUT THE FILM</span>
+                             <span class="RightSpan"></span>
+                         </a>
+                    </div>
+                 </div>
+                <div class="bottomArrowLike">
+                    <div class="rightPart"></div>
+                    <div class="leftPart"></div>
+                </div>
             </div>
-        </div>
-        <div class="arrows">
-            <a href="#" ng-click="setCurrentSlideImage(visible_image - 1)">
-                <img src="img/left-arrow.png" />
-            </a>
-            <a href="#" ng-click="setCurrentSlideImage(visible_image + 1)">
-                <img src="img/right-arrow.png" />
-            </a>
+            <div class="arrows">
+                <a class="arrowLeft" href="#" ng-click="setCurrentSlideImage(visible_image - 1)">
+                </a>
+                <a class="arrowRight" href="#" ng-click="setCurrentSlideImage(visible_image + 1)">
+                </a>
+            </div>
+            <div id="bottomPic">
+                <div class="whiteDiv left"></div>
+                <div class="whiteDiv right"></div>
+            </div>
         </div>
         <div id="smallPicturesContainer">
             <ul id="smalPicturesUl">
                 <li class="smallPicLi" ng-repeat="image in images" ng-click="setCurrentSlideImage($index);">
                     <button class="closeBtn" ng-click="removeImage($index)"><i>X</i></button>
                     <img class="smallPicture" height="100" ng-src="{{image.image_url}}"/>
-                    <h5 ng-bind="image.title"></h5>
-                    <span ng-bind="image.description"></span>
+                    <div class="picDetails">
+                        <span ng-bind="image.description"></span>
+                        <h5 ng-bind="image.title"></h5>
+                   </div>
                 </li>
             </ul>
         </div>
+        <div class="footer"></div>
     </div>
 

@@ -1,93 +1,174 @@
-﻿   * {
-  font-family: 'Open Sans', sans-serif;
-}
-.center-grey {
-  background: #f2f2f2;
-}
-.slider {
-  position: relative;
-  padding: 5px;
-  width: 610px;
-  margin: auto;
-  margin-top: 40px;
-}
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-shadow: 0px 0px 15px #999;
-}
-.arrows {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-}
-.arrows img {
-  height: 32px;
-}
-h1 {
-  text-align: center;
-  padding: 10px;
-  font-size: 40px;
-  color: #222;
+﻿* {
+    font-family: 'Open Sans', sans-serif;
 }
 
-    .slide.ng-hide-add,
-.slide.ng-hide-remove {
-  -webkit-transition: all linear 0.5s;
-  -moz-transition: all linear 0.5s;
-  -o-transition: all linear 0.5s;
-  transition: all linear 0.5s;
-  display: block!important;
+.center-grey {
+    background: #f2f2f2;
 }
-.slide.ng-hide-add.ng-hide-add-active,
-.slide.ng-hide-remove {
-  opacity: 0;
+
+.slider {
+    position: relative;
+    width: 610px;
+    margin: auto;
+    /* margin-top: 40px;*/
 }
-.slide.ng-hide-add,
-.slide.ng-hide-remove.ng-hide-remove-active {
-  opacity: 1;
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*box-shadow: 0px 0px 15px #999;*/
 }
+
+.arrows {
+    position: absolute;
+    top: 50%;
+    margin-top: -7px;
+    width: 95%;
+    left: 2.5%;
+}
+
+.arrowLeft {
+    display: block;
+    width: 0;
+    border-width: 7px 10px 7px 0;
+    border-color: transparent #fff transparent transparent;
+    border-style: solid;
+    cursor: pointer;
+    float: left;
+}
+
+.arrowRight {
+    display: block;
+    width: 0;
+    border-width: 7px 0 7px 10px;
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+    cursor: pointer;
+    float: right;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+    font-size: 40px;
+    color: #222;
+}
+
+
+.slide.ng-hide-remove 
+{
+    -webkit-transition: all linear 1s;
+    -moz-transition: all linear 1s;
+    -o-transition: all linear 1s;
+    transition: all linear 1s;
+    display: block!important;
+}
+
+    .slide.ng-hide-remove {
+        margin-left: 100%;
+    }
+
+        .slide.ng-hide-remove.ng-hide-remove-active {
+           margin-left: 0;
+        }
+
 
 /*=============================*/
-div#smallPicturesContainer {
-    z-index: 10;
-    position: relative;
-    bottom: 0;
-    position: absolute;
-}
-
 .slider.ng-isolate-scope {
     height: 400px;
     width: 100%;
+    background: #f5f5f5;
 }
 
 .slide {
-    height: 100%;
+    height: 600px;
+    width: 100%;
+    position: relative;
+}
+
+    .slide img {
+        height: 100%;
+        width: 100%;
+    }
+
+.bottomArrowLike {
+    position: absolute;
+    bottom: 0px;
+    height: 20px;
     width: 100%;
 }
 
-.slide img {
-    height: 100%;
-    width: 100%;
+    .bottomArrowLike div {
+        width: 50%;
+        background: #f5f5f5;
+        height: 100%;
+    }
+
+.rightPart {
+    margin-right: -19px;
+    float: right;
 }
 
-ul {}
+.leftPart {
+    margin-left: -19px;
+    float: left;
+}
+
+ul {
+}
 
 #smalPicturesUl {
-    height: 100px;
-    width: 100%;
+    width: 2500px;
     list-style: none;
+    left: -105px;
+    overflow: hidden;
+    height: 262px;
+    position: relative;
 }
 
 
 
-#smalPicturesUl li {
-    width: 100px;
+    #smalPicturesUl li {
+        /* width: 100px;
     float: left;
-    margin: 0 3px;
+    margin: 0 3px;*/
+    }
+
+    #smalPicturesUl li {
+        width: 275px;
+        margin: 5px 15px;
+        float: none;
+        display: inline-block;
+        vertical-align: top;
+        height: 250px;
+        position: relative;
+        background: #fff;
+        -moz-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.26);
+        -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.26);
+        box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.26);
+    }
+
+        #smalPicturesUl li:hover {
+            transform: translateY(-5px);
+        }
+
+.picDetails {
+    padding: 12px 20px;
+    text-align: left;
 }
 
+    .picDetails span {
+        color: #818181;
+        font-size: 14px;
+    }
+
+    .picDetails h5 {
+        line-height: 18px;
+        font-size: 16px;
+        text-transform: uppercase;
+        margin: 10px 0px;
+    }
 
 /*=============================*/
 /*============popup===========*/
@@ -111,13 +192,23 @@ ul {}
     border: 1px solid transparent;
     padding: 6px 12px;
     font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #B08A43;
     border-radius: 4px;
     height: 40px;
-    background-color: rgba(66, 202, 70, 0.78);
-    border-color: rgba(66, 202, 70, 0.78);
-    }
+}
 
-.popupForm {height: 100%;width: 100%;}
+.popupForm input.btnPopup:hover {
+    transition: background 1s ease;
+    background: #ca9e4d;
+}
+
+.popupForm {
+    height: 100%;
+    width: 100%;
+}
 
 .modal.fade {
     height: auto;
@@ -142,58 +233,167 @@ ul {}
 #smallPicturesContainer {
     text-align: center;
     display: block;
-    position: absolute;
+    /* position: absolute;
     z-index: 1002;
     left: 0;
     bottom: 15px;
     right: 0;
-    height: 22%;
+    height: 22%;*/
+    background: #f5f5f5;
+    width: 100%;
+    overflow: hidden;
 }
 
-#smalPicturesUl li {
-    height: 100%;
-    width: 13.2%;
-    margin: 5px;
-    float: none;
-    display: inline-block;
-    position: relative;
-}
 
 .closeBtn {
-    border-color: orange;
+    border-color: transparent;
     position: absolute;
     top: 2px;
     left: 2px;
-    z-index: 10;
+    /* z-index: 10; */
     background-color: black;
     padding: 0;
-    padding-right: 5px;
-    color: orange;
+    /* padding-right: 5px; */
+    color: #fff;
     font-weight: bold;
     cursor: pointer;
     font-size: 20px;
     border-radius: 50%;
     height: 30px;
     width: 30px;
+    opacity: .4;
+    transition: opacity .5s;
+    display: block;
 }
 
+.closeBtn:hover {
+    opacity: 1;
+}
 
 .smallPicLi img {
     width: 100%;
+    height: 150px;
+}
+
+.slide .container {
+    position: absolute;
+    bottom: 80px;
+    width: 1100px;
+    left: 50%;
+    margin-left: -550px;
+}
+
+.outerSlideTitle {
+    position: relative;
 }
 
 .slideH3, .slideSpan, .slideA {
-    position: absolute;
+    /* position: absolute;
     bottom: 200px;
     color: orange;
-    font-size: 29px;
+    font-size: 29px;*/
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
 }
 
+.slideH3 {
+    font-size: 52px;
+}
+
+.sliderSeperator {
+    height: 6px;
+    margin: 30px 0;
+    background: #B08A43;
+    width: 20%;
+}
+
+.slideA {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    line-height: 48px;
+    font-size: 0px; /*because we dont want extra-seperate between the elements :-) */
+}
+
+    .slideA span {
+        display: inline-block;
+        margin-right: 4px;
+        height: 48px;
+        line-height: 48px;
+        font-size: 14px;
+        vertical-align: top;
+        padding: 0 24px;
+        background-color: #B08A43;
+        -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
+        -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
+        box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
+    }
+
+    .slideA:hover span {
+        transition: background 1s ease;
+        background: #ca9e4d;
+    }
 
 .closeBtn i {
     width: 100%;
     height: 100%;
+    font-style: normal;
+    font-size: 16px;
 }
 
+/*header*/
+#header {
+    width: 100%;
+    height: 60px;
+    background: #222;
+}
 
- 
+#topNav {
+    list-style: none;
+    float: left;
+    margin: 0;
+    margin-left: 104px;
+    z-index: 2;
+    position: relative;
+}
+
+.topLi {
+    position: relative;
+    float: left;
+    line-height: 59px;
+}
+
+    .topLi a {
+        padding: 10px 22px;
+        color: #d2d2d2;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+/********/
+/*white div*/
+div#bottomPic {
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* background: #fff; */
+}
+
+.whiteDiv {
+    width: 45%;
+    height: 20px;
+    background: #f5f5f5;
+}
+
+    .whiteDiv.right {
+        float: right;
+    }
+
+    .whiteDiv.left {
+        float: right;
+    }
+
+.footer {
+    background: #000;
+    height: 300px;
+}
